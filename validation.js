@@ -19,6 +19,13 @@ function validatename(){
     nameError.innerHTML='<i class="fa-solid fa-circle-check"></i>';
    return true;
    }
+    else if(name.match(/^[a-zA-Z]+ $/)){
+    nameError.innerHTML='<i class="fa-solid fa-circle-check"></i>';
+   return true;
+   }
+
+
+
    nameError.innerHTML='write full name';
 return false;
 }
