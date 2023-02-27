@@ -34,22 +34,23 @@ return false;
  function validateemail(){
 
     var email=document.getElementById('email').value;
-    var atposition=email.indexOf("@");
-    var dotpostion=email.indexOf('.');
+    var emailRegEx=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    
 
     if(email.length == 0){
         emailError.innerHTML='Email is required';
         return false;
        }
 
-    if(atposition<1 || dotpostion<atposition+2||dotpostion+2>email.length){
-        emailError.innerHTML='write a valid email id';
-        return false;
-    }
-
-    emailError.innerHTML='<i class="fa-solid fa-circle-check"></i>';
+    if(email.match(emailRegEx)){
+        emailError.innerHTML='<i class="fa-solid fa-circle-check"></i>';
    return true;
 
+        
+    }
+
+   emailError.innerHTML='write a valid email id';
+   return false;
 }
 
 function validatesubject(){
